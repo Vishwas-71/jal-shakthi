@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 CATEGORY_CHOICES = [
     ("flooding", "Flooding"),
@@ -9,7 +10,15 @@ CATEGORY_CHOICES = [
     ("other", "Other Issues"),
 ]
 
+STATUS_CHOICES = [
+    ("pending", "Pending"),
+    ("in_progress", "In Progress"),
+    ("resolved", "Resolved"),
+]
+
 class WaterIssueReport(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
     title = models.CharField(max_length=255)
     description = models.TextField()
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
@@ -17,21 +26,14 @@ class WaterIssueReport(models.Model):
     latitude = models.FloatField()
     longitude = models.FloatField()
     address = models.TextField()
+
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default="pending"
+    )
+
     created_at = models.DateTimeField(auto_now_add=True)
-
-class TestModel(models.Model):
-    name = models.CharField(max_length=100)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-
-class Report(models.Model):
-    title = models.CharField(max_length=255)
-    description = models.TextField()
-    category = models.CharField(max_length=100)
-    address = models.TextField()
-    latitude = models.FloatField()
-    longitude = models.FloatField()
-    image = models.ImageField(upload_to='media/', blank=True, null=True)
 
     def __str__(self):
         return self.title
