@@ -1,11 +1,15 @@
+from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import path
-from . import views
+
+from .views import register_user
 
 urlpatterns = [
-    path('reports/', views.get_all_reports, name='report-list'),
+
+    # Register new user
+    path('register/', register_user, name='register'),
+
 ]
 
-# Append media URL patterns (if needed)
+# Serve media files during development
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
