@@ -1,154 +1,60 @@
-# 🚰 Jal Shakthi – Water Issue Reporting System
+# Jalshakti – Civic Water Issue Reporting System
 
-A full-stack web application designed to help citizens report water-related issues such as leakage, contamination, pipeline damage, and more.  
-This system allows users to upload issue details with images, while administrators can review and manage all submitted reports.
+Jalshakti is a full-stack web application that allows citizens to report water-related issues such as flooding, drainage blockages, water leakage, and infrastructure damage. The platform helps authorities track and manage reported issues efficiently.
 
----
+## Features
+- User Registration and Login using JWT Authentication
+- Report water-related issues with images and location
+- Interactive map integration using Leaflet
+- Dashboard to view submitted reports
+- Image upload support
+- Admin management through Django Admin Panel
 
-## 📌 Features
+## Tech Stack
+Frontend:
+- React
+- TypeScript
+- Tailwind CSS
+- Axios
+- React Router
+- Leaflet Maps
 
-### 🔹 User Features
-- Submit water issue reports  
-- Upload images of damaged areas  
-- Track report submission status *(optional)*  
+Backend:
+- Django
+- Django REST Framework
+- JWT Authentication (SimpleJWT)
 
-### 🔹 Admin Features
-- View all submitted reports  
-- Filter & manage reports  
-- Update status (Resolved / Pending / In-progress)
+Database:
+- SQLite
 
-### 🔹 Technical Features
-- REST API built with Django Rest Framework  
-- React + Vite frontend  
-- MySQL database  
-- Image handling using Pillow  
-- CORS enabled for secure API communication  
+## Project Structure
+Backend – Django REST API  
+Frontend – React Application  
 
----
+## Installation and Setup
 
-## 🛠 Tech Stack
+### Backend
+cd Backend  
+python -m venv venv  
+venv\Scripts\activate  
+pip install -r requirements.txt  
+python manage.py migrate  
+python manage.py runserver  
 
-### **Backend**
-- Python  
-- Django  
-- Django REST Framework  
-- MySQL  
-- Pillow  
+Backend runs at:  
+http://127.0.0.1:8000
 
-### **Frontend**
-- React  
-- Vite  
-- TypeScript  
-- TailwindCSS  
-- shadcn-ui  
+### Frontend
+cd Frontend  
+npm install  
+npm run dev  
 
----
+Frontend runs at:  
+http://localhost:8080
 
-## 📁 Project Structure
+## Author
+Vishwas B  
+B.Tech Computer Science – Presidency University
 
-```
-JAL-SHAKTHI/
-│
-├── Backend/
-│   ├── backend/
-│   ├── reports/
-│   ├── media/
-│   ├── manage.py
-│   ├── requirements.txt
-│
-├── frontend/
-│   ├── src/
-│   ├── public/
-│   ├── package.json
-│   └── vite.config.ts
-│
-└── README.md
-```
-
----
-
-# 🚀 How to Run Locally
-
-## ▶ 1. Clone the Repository
-
-```sh
-git clone https://github.com/Vishwas-71/jal-shakthi.git
-cd jal-shakthi
-```
-
----
-
-# 🖥 Backend Setup (Django)
-
-```sh
-cd Backend
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-cd backend
-python manage.py migrate
-python manage.py runserver
-```
-
-Backend will run at:  
-👉 **http://127.0.0.1:8000**
-
----
-
-# 🌐 Frontend Setup (React + Vite)
-
-Open a new terminal:
-
-```sh
-cd frontend
-npm install
-npm run dev
-```
-
-Frontend will run at:  
-👉 **http://localhost:5173**
-
----
-
-# 📡 API Endpoints
-
-```
-GET    /api/reports/          → Fetch all reports
-POST   /api/reports/          → Create new report
-GET    /api/reports/<id>/     → Fetch report by ID
-```
-
----
-
-# 🏞 Screenshots 
-
-```
-![Homepage](screenshots/home.png)
-![Admin Panel](screenshots/admin.png)
-```
-
-Create a folder `/screenshots` in root and upload images.
-
----
-
-# 🔮 Future Enhancements
-
-- Add authentication (User login / Admin login)
-- Add map integration for exact issue locations
-- Email notifications
-- Mobile app version
-
----
-
-# 👨‍💻 Author
-
-**Vishwas B**  
-Final Year – Computer Science & Technology  
-GitHub: [Vishwas-71](https://github.com/Vishwas-71)
-
----
-
-# ⭐ Support the Project
-
-If you like this project, please ⭐ **star the repository** on GitHub!
-
+## Note
+This project was developed as a learning project to demonstrate full-stack development using React and Django REST Framework.
